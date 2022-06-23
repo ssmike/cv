@@ -1,0 +1,97 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Mikhail}{Surin}
+\title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+\address{25/1-24 Oktyabrskaya str.}{143980 Zheleznodorozhny}{Russia}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+7~(925)~705~32~46}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+\email{surinmike@gmail.com}                        % optional, remove / comment the line if not wanted
+\social[github]{ssmike}                              % optional, remove / comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                % optional, remove / comment the line if not wanted
+
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\makecvtitle
+\section{Education}
+\cventry{2013--2017}{Bachelor of Computer Science}{Moscow Institute of Physics and Technology (State University)}{Russia, Dolgoprudny}{}{}
+\cventry{2017--2018}{Master of Computer Science}{Moscow Institute of Physics and Technology (State University)}{Russia, Dolgoprudny}{}{}
+
+\section{Experience}
+\cventry{July 2016 -- Sept. 2016}{Software engineering intern}{Yandex}{Moscow}{}{news.yandex.com infrastructure team.}%
+\cventry{Oct. 2016 -- May 2017}{Junior software engineer}{Yandex}{Moscow}{}{news.yandex.com infrastructure team.}%
+\cventry{May 2017 -- Sept. 2018}{Software engineer}{Yandex}{Moscow}{}{news.yandex.com infrastructure team.
+    \newline{}\newline{}
+Key qualifications \& responsibilities:%
+\begin{itemize}%
+    \item developed and maintained news scraping robot;%
+    \item designed and developed distributed scheduler for checking news availability;%
+    \item designed and developed fault tolerant storage for news documents;%
+    \item Key technologies: C++, Redis, MapReduce;%
+\end{itemize}
+}
+
+
+\cventry{Sept. 2018 - Sept. 2019}{Software engineer}{Yandex}{Moscow}{}{yandex base search team.}%
+\cventry{Sept. 2019 - May 2022}{Senior software engineer}{Yandex}{Moscow}{}{yandex base search team.
+    \newline{}\newline{}
+Key qualifications \& responsibilities:%
+\begin{itemize}
+    \item developed and maintaned lower levels of search runtime, search index build pipeline and related infrastructure.
+    \item designed and developed low latency network storage for search index with erasure coding support.
+    \item led team of 3 developers
+    \item Key technologies: C++, MapReduce, Linux AIO, io\_uring
+\end{itemize}
+}
+
+\cventry{May 2022 - Now}{Senior software engineer}{Yandex}{Moscow}{}{\href{https://ydb.tech/}{YDB} core team.}%
+
+
+\section{Awards}
+\cvitem{2014}{IMC -- Second prize (107th place)}
+\cvitem{2014--2015}{ACM ICPC Finals -- 28th place}
+
+\section{Languages}
+\cvitem{Russian}{Native speaker}
+\cvitem{English}{Intermediate}
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\section{Extra}
+\cvlistitem{2016-2018 -- student at Yandex School of Data Analysis}
+\cvlistitem{2017 - \href{https://github.com/ssmike/mvcc-checker}{Jepsen bindings for verification of serializable snapshots}}
+\end{document}
