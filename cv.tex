@@ -62,7 +62,8 @@ Key qualifications \& responsibilities:%
     \item developed and maintained news scraping robot;%
     \item designed and developed distributed scheduler for checking news availability;%
     \item designed and developed fault tolerant storage for news documents;%
-    \item Key technologies: C++, Redis, MapReduce;%
+    \item designed fault-tolerant stream clustering service
+    \item Key technologies: C++, Zookeeper, Redis, MapReduce;%
 \end{itemize}
 }
 
@@ -72,14 +73,22 @@ Key qualifications \& responsibilities:%
     \newline{}\newline{}
 Key qualifications \& responsibilities:%
 \begin{itemize}
-    \item developed and maintaned lower levels of search runtime, search index build pipeline and related infrastructure.
+    \item developed and maintained lower levels of search runtime, search index build pipeline and related infrastructure.
     \item designed and developed low latency network storage for search index with erasure coding support.
+    \item designed and developed control plane for network storage with support of node/data evacuation and load balancing
     \item led team of 3 developers
     \item Key technologies: C++, MapReduce, Linux AIO, io\_uring
 \end{itemize}
 }
 
-\cventry{May 2022 - Now}{Senior software engineer}{Yandex}{Moscow}{}{\href{https://ydb.tech/}{YDB} core team.}%
+\cventry{May 2022 - Now}{Senior software engineer}{Yandex}{Moscow}{}{\href{https://ydb.tech/}{YDB} core team.
+    \newline{}\newline{}
+\begin{itemize}
+    \item reworked predicate pushdown logic
+    \item reworked query execution model for OLTP pipeline
+    \item Key technologies: C++, actor model
+\end{itemize}
+}%
 
 
 \section{Awards}
