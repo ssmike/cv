@@ -84,21 +84,18 @@
     \newline{}
     \underline{Duties}:
     \begin{itemize}
-        \item development and maintenance of lower levels of search runtime, a search index build pipeline and related infrastructure.
-        \item capacity planning of lower levels of search runtime.
-        \item support of ml-engineers from other search departments
-        \item led a team of 3 developers
+        \item Development and maintenance of lower levels of search runtime, a search index build pipeline and related infrastructure.
+        \item Capacity planning of lower levels of search runtime.
+        \item Support of ml-engineers from other search departments
+        \item Led a team of 3 developers
     \end{itemize}
     \underline{Achievements}:
     \begin{itemize}
-        \item reworked an inverted index build pipeline which enabled us to extract inverted index to a separate micro-service and save a half of compute resources.
-        \item designed and developed a low latency network storage for the search index with erasure coding support with strict latency requirements and optimized it for bigger throughput enabling it to handle over 30k requests/disk reads per second on a single processor core. To improve throughput made use of asynchronous disk APIs made experiments on software disk scheduling. Investigated and successfully mitigated SATA-related issues.
-        \item put search document indices in the network storage which allowed us to to grow the search base by 100\% and further reshard the base search enabling us to save 40\% of compute resources
-        \item designed and developed a control plane for network storage with support for node/data evacuation and load balancing which enabled us to move the storage to an internal cloud
-            and further generalize it to use as a service in other departments. To improve the scalability of a planning controller designed and developed reactive framework in C++ to efficiently handle
-            partial persistent state updates and improve by an order the reaction time on maintenance/host crashes and data delivery confirmations.
-        \item designed and led a generalization of the search storage for use in other services as a service including a design of control plane. The list of successful integrations includes Yandex
-            internal advertising platform.
+        \item Reworked an inverted index build pipeline which enabled us to extract inverted index to a separate micro-service and save half of the compute resources.
+        \item Designed and developed a low latency network storage for the search index with erasure coding support and strict latency requirements. Further optimized it for bigger throughput enabling the storage runtime to handle over 30k requests/disk reads per second on a single processor core. To improve throughput made use of asynchronous disk APIs, made experiments on software disk scheduling. Investigated and successfully mitigated SATA-related issues.
+        \item Put search document indices in the network storage which allowed us to to grow the search base by 100\% and further reshard the search service enabling us to save 40\% of compute resources
+        \item Designed and developed a control plane for the storage with support for node/data evacuation and load balancing which enabled us to move the storage service to an internal cloud with automatic hosts maintenance and resource allocation. Further generalized it to use as a service in other departments. To improve the scalability of a planning controller designed and developed a reactive framework in C++ to efficiently handle partial persistent state updates and improve 15 times reaction time on maintenance/host crashes and data delivery confirmations.
+        \item Designed and led the generalization of the search storage for use in other departments as a service including a design of control plane. The list of successful integrations includes Yandex internal advertising platform.
     \end{itemize}
     \underline{Key technologies}: C++, MapReduce, Linux AIO, io\_uring, Python, Go
 }
