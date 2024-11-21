@@ -63,20 +63,17 @@
     \newline{}
     \underline{Duties}
     \begin{itemize}
-        \item development of the query compiler, optimizer and query execution runtime
+        \item Development of the query compiler, optimizer and query execution runtime
         \item 2nd-line support for internal and external users
     \end{itemize}
     \underline{Achievements}:
     \begin{itemize}
-        \item reworked the predicate pushdown logic to make use of calculated (non-literal) read ranges for table reads. As a result allowed users to efficiently use more complex filters in select statements including use of OR, tuple comparisons, type casts.
-        \item implemented automatic rule-based secondary inidices usage
-        \item reworked query execution model for OLTP pipeline moving the query logic execution from shards pipeline to separate distributed service allowing users to stream table select results from
-            shards removing the limit for the data read from shards in OLTP execution pipeline.
-            Also the new execution model allowed the query processor to employ resource-based execution planning and improved TPC-C results by 40\%. Also the new model allowed the sequential
-            shards scan in select statements with limit (before query was always executed on all affected shards). 
-        \item added support for the `returing` keyword
-        \item implemented cpu isolation for user queries which allowed to configure database resource pools to prevent OLAP queries from affecting OLTP workloads and different OLAP workloads
-            from affecting each other.
+        \item Reworked the predicate pushdown logic to make use of calculated (non-literal) read ranges for table reads. As a result allowed users to efficiently use more complex filters in select statements including use of OR, tuple comparisons, type casts.
+        \item Implemented automatic rule-based secondary inidices usage
+        \item Reworked query execution model for OLTP pipeline moving the query logic execution from shards pipeline to a separate distributed service allowing users to stream table select results from shards removing the limit for the data read from shards in OLTP queries.
+            Also the new execution model allowed the query processor to employ resource-based execution planning, improved TPC-C results by 40\%a and allowed the quuery processor to use the sequential shards scan in select statements with limit (before query was always executed on all affected shards). 
+        \item Added support for the `returning` keyword
+        \item Implemented cpu isolation for user queries which allowed users to configure database resource pools to prevent OLAP queries from affecting OLTP workloads and different OLAP workloads from affecting each other.
     \end{itemize}
     \underline{Technologies}: C++, actor model, Python, Go
 }%
