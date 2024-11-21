@@ -107,18 +107,18 @@
     \newline{}
     \underline{Duties}
     \begin{itemize}
-        \item development and maintainance of a news scraping robot, document storage
-        \item support for ml-engineers
-        \item second line support for partners (news agencies).
+        \item Development and maintainance of a news scraping robot, document storage
+        \item Support for ml-engineers
+        \item Second line support for partners (news agencies).
     \end{itemize}
     \underline{Achievements}:
     \begin{itemize}%
-        \item reworked news document annotation service to by asynchronous which enabled the use of large batch neural models
-        \item developed an external link feature which enabled the service to include links to social nets and comply with regional laws.
-        \item designed and developed fault tolerant storage over multiple YT (in-house MapReduce system) clusters surviving drills and data-center outages. Enabled the base to keep historical data, improved document delivery time twice. Also replaced distributed redis caches improving resilience. %
-        \item designed and developed cloud-native scheduler for checking news availability using the new document storage with rate limits. Implemented reliable checker for historical data availability using OLAP and OLTP capabilities of an in-house MapReduce system (YT)%
-        \item designed fault-tolerant stream clustering service instead of legacy version linked to specific news indexer which enabled us to reduce amount of resources consumed by clustering by 5 times and created consistent clusterization of historical data instead of a fresh one. Also enabled the service to use persistent story ids which did not exist before the global clusterization.
-        \item designed and developed local falut-tolerant document storage for news indexer based on COW data structures and write-ahead logging which enabled us to build consistent data snapshots on historical data and enabled us to reproduce exact inputs for ml-models.
+        \item Reworked the news document annotation service to by asynchronous which enabled the use of large batch neural models
+        \item Developed an external link feature which enabled the service to include links to social nets and comply with regional laws.
+        \item Designed and developed a fault tolerant storage over multiple YT (in-house MapReduce system) clusters surviving drills and data-center outages. This enabled the document base to keep historical data, improved document delivery time by 30\%. Also replaced distributed Redis caches, improving resilience. %
+        \item Designed and developed a cloud-native scheduler for checking news availability using the new document storage. Implemented reliable checker for historical data availability using OLAP and OLTP capabilities of an in-house MapReduce system (YT) and implemented rate-limiting system to avoid excessive load on partner sites.
+        \item Designed a fault-tolerant stream clustering service instead of legacy non-incremental fresh news clusterization linked to a specific news indexer which enabled us to reduce amount of resources consumed by clustering by 5 times and created consistent clusterization of historical data. Also enabled the service to use persistent story IDs/urls which did not exist before the global clusterization.
+        \item designed and developed a local falut-tolerant document storage for news indexer based on COW data structures and write-ahead logging which enabled us to greatly simplify news ranking pipeline, build consistent data snapshots on historical data and created a possibility to reproduce exact inputs for ml-models.
     \end{itemize}
     \underline{Key technologies}: C++, Zookeeper, Redis, MapReduce%
 }
