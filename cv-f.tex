@@ -68,10 +68,10 @@
     \end{itemize}
     \underline{Achievements}:
     \begin{itemize}
-        \item Reworked the predicate pushdown logic to make use of calculated (non-literal) read ranges for table reads. As a result allowed users to efficiently use complex filters.
+        \item Reworked the predicate pushdown logic to make use of calculated (non-literal) read ranges for table reads. As a result allowed users to efficiently use complex filters and allowed to choose secondary indices automatically.
         \item Reworked query execution model for OLTP pipeline moving the query logic execution from shards pipeline to a separate distributed service which allowed the query processor to pipeline table reads and query logic, to employ resource-based execution planning, improved TPC-C results by 40\%.
         \item Added support for the `returning` keyword on the internal query language level forcing materialization of computed rows.
-        \item Implemented cpu isolation for user queries which allowed users to configure database resource pools to prevent OLAP queries from affecting OLTP workloads and different OLAP workloads from affecting each other. Experimented on different fair-share strategies. 
+        \item Implemented cpu isolation for user workloads to use in OLAP/HTAP scenarios.
     \end{itemize}
     \underline{Technologies}: C++ 20, actor model, Python, Go%
 }%
