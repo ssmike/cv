@@ -1,0 +1,127 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a3paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.9]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Mikhail}{Surin}
+\title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+\address{25/1-24 Oktyabrskaya str.}{143980 Zheleznodorozhny}{Russia}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+7~(925)~705~32~46}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+\email{surinmike@gmail.com}                        % optional, remove / comment the line if not wanted
+\social[github]{ssmike}                              % optional, remove / comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                % optional, remove / comment the line if not wanted
+
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\makecvtitle
+
+\section{Education}
+\cventry{2013--2017}{Bachelor of Computer Science}{Moscow Institute of Physics and Technology (State University)}{Russia, Dolgoprudny}{}
+{Thesis: \href{https://github.com/ssmike/mvcc-checker}{Jepsen bindings for verification of serializable snapshots}}
+
+\cventry{2017--2020}{Master of Computer Science}{Moscow Institute of Physics and Technology (State University)}{Russia, Dolgoprudny}{}
+{Thesis: \href{https://github.com/ssmike/nvm-research}{Data structures for consensus algorithms on persistent memory}}
+
+\cventry{2016-2018}{Graduate}{Yandex School of Data Analysis}{Russia, Moscow}{}{}
+
+\section{Experience}
+\cventry{2022 -- Now}{Senior software engineer}{Yandex}{Moscow}{}{\href{https://ydb.tech/}{YDB} (is an open-source newsql dbms) query processor team.
+    \newline{}
+    \underline{Duties}
+    \begin{itemize}
+        \item Development of the query compiler, optimizer and query execution runtime
+        \item 2nd-line support of internal and external users
+    \end{itemize}
+    \underline{Achievements}:
+    \begin{itemize}
+        \item Reworked the predicate pushdown logic to make use of calculated (non-literal) read ranges for table reads. As a result allowed users to efficiently use complex filters.
+        \item Reworked query execution model for OLTP pipeline moving the query logic execution from shards pipeline to a separate distributed service which allowed the query processor to pipeline table reads and query logic, to employ resource-based execution planning, improved TPC-C results by 40\%.
+        \item Added support for the `returning` keyword on the internal query language level forcing materialization of computed rows.
+        \item Implemented cpu isolation for user queries which allowed users to configure database resource pools to prevent OLAP queries from affecting OLTP workloads and different OLAP workloads from affecting each other. Experimented on different fair-share strategies. 
+    \end{itemize}
+    \underline{Technologies}: C++ 20, actor model, Python, Go%
+}%
+\cventry{2018 -- 2022}{Senior software engineer}{Yandex}{Moscow}{}{yandex base search team.
+    \newline{}
+    \underline{Duties}:
+    \begin{itemize}
+        \item Development and maintenance of lower levels of search runtime, a search index build pipeline and related infrastructure.
+        \item Capacity planning of lower levels of search runtime.
+        \item Support of ml-engineers from other search departments
+        \item Led a team of 3 developers
+    \end{itemize}
+    \underline{Achievements}:
+    \begin{itemize}
+        \item Reworked an inverted index build pipeline which enabled us to extract inverted index to a separate micro-service and save half of the compute resources.
+        \item Designed and developed a low latency network storage for the search index with erasure coding support and strict latency requirements. Further optimized it for bigger throughput enabling the storage runtime to handle over 30k requests/disk reads per second on a single processor core. To improve throughput made use of asynchronous disk APIs. Investigated and successfully mitigated SATA-related issues, linux scheduler latency issues, tuned the networking stack to optimize latency.
+        \item Put search document indices in the network storage which allowed us to to grow the search base by 100\% and further reshard enabling us to save 40\% of CPU used. 
+        \item Designed and developed a control plane for the storage with support for node/data evacuation and load balancing which enabled us to move the storage service to an internal cloud with automatic hosts maintenance and resource allocation. Further generalized it to use as a service in other departments. To improve the scalability of a planning controller designed and developed a reactive framework and to efficiently handle partial persistent state updates and a small ORM for YT objects in C++ to better employ devirtualization and copy elision. This framework improved 15 times reaction time on maintenance/host crashes and data delivery confirmations and allowed us to scale search base.
+        \item Designed and led the generalization of the search storage for use in other departments as a service including a design of control plane. The list of successful integrations includes Yandex internal advertising platform.
+    \end{itemize}
+    \underline{Key technologies}: C++ 17, MapReduce, Linux AIO, io\_uring, Python, Go
+}%
+\cventry{2016 -- 2018}{Software engineer}{Yandex}{Moscow}{}{news.yandex.com infrastructure team.
+    \newline{}
+    \underline{Duties}
+    \begin{itemize}
+        \item Development and maintainance of a news scraping robot and document storage. 
+        \item Support of ml-engineers
+        \item Second line support of partners (news agencies).
+    \end{itemize}
+    \underline{Achievements}:
+    \begin{itemize}%
+        \item Reworked the news document annotation service to by asynchronous which enabled the use of large neural models and optimized document annotation time 5 times.
+        \item Developed an external link feature which enabled the service to include links to social nets and comply with regional laws.
+        \item Designed and developed a fault tolerant storage over multiple YT (in-house MapReduce system) clusters surviving drills and data-center outages. This enabled the document base to keep historical data, improved document delivery time by 30\%. Also replaced distributed Redis caches, improving resilience. %
+        \item Designed and developed a cloud-native scheduler for checking news availability using the new document storage. Implemented reliable checker for historical data availability using OLAP and OLTP capabilities of an in-house MapReduce system (YT) and implemented rate-limiting system to avoid excessive load on partner sites.
+        \item Designed a fault-tolerant stream clustering service instead of legacy non-incremental fresh news clusterization linked to a specific news indexer which enabled us to reduce amount of resources consumed by clustering by 5 times and created consistent clusterization of historical data. Also enabled the service to use persistent story IDs/urls which did not exist before the global clusterization.
+        \item designed and developed a local falut-tolerant document storage for news indexer based on COW balanced trees and write-ahead logging which enabled us to greatly simplify news ranking pipeline by using data snapshots, build consistent data snapshots on historical data and allowed to reproduce exact inputs for ml-models.
+    \end{itemize}
+    \underline{Key technologies}: C++ 14, Zookeeper, Redis, Lua, MapReduce, event-based architecture%
+}
+
+\section{Awards}
+\cvitem{2014}{IMC -- Second prize (107th place)}
+\cvitem{2014--2015}{ACM ICPC Finals -- 28th place}
+
+\section{Languages}
+\cvitem{Russian}{Native speaker}
+\cvitem{English}{B2}
+\cvitem{Spanish}{B1}
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
