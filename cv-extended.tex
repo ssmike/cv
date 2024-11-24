@@ -114,7 +114,7 @@
         \item Designed a fault-tolerant stream clustering service instead of legacy non-incremental fresh news clusterization linked to a specific news indexer which enabled us to reduce amount of resources consumed by clustering by 5 times and created consistent clusterization of historical data. Also enabled the service to use persistent story IDs/urls which did not exist before the global clusterization.
         \item designed and developed a local falut-tolerant document storage for news indexer based on COW balanced trees and write-ahead logging which enabled us to greatly simplify news ranking pipeline by using long-term data snapshots, build consistent data snapshots on historical data and created a possibility to reproduce exact inputs for ml-models.
     \end{itemize}
-    \underline{Key technologies}: C++ 14, Zookeeper, Redis, Lua, MapReduce, event-based architecture%
+    \underline{Key technologies}: C++ 14, Zookeeper, Redis, Lua, MapReduce%
 }
 
 \cventry{2016 -- 2017}{Junior software engineer}{Yandex}{Moscow}{}{news.yandex.com infrastructure team.}%
